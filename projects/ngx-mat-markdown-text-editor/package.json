@@ -1,0 +1,13 @@
+{
+  "name": "ngx-mat-markdown-text-editor",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/cdk": "^9.2.1",
+    "@angular/common": "^9.1.1",
+    "@angular/core": "^9.1.1",
+    "@angular/forms": "~9.1.1",
+    "@angular/material": "^9.2.1",
+    "ngx-markdown": "^9.0.0",
+    "tslib": "^1.10.0"
+  }
+}

@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="button-container">
+    <mat-icon (click)="addContent('Bold')">format_bold</mat-icon>
+    <mat-icon (click)="addContent('Italic')">format_italic</mat-icon>
+    <mat-icon [matMenuTriggerFor]="menu">title</mat-icon>
+    <mat-menu #menu="matMenu" class="mat-menu" xPosition="before">
+      <div (click)="addContent('H' +heading)" *ngFor="let heading of [1,2,3,4,5,6]" class="mat-menu-item" mat-menu-item>
+        {{'H' + heading}}
+      </div>
+    </mat-menu>
+    <mat-icon (click)="addContent('Ul')">format_list_bulleted</mat-icon>
+    <mat-icon (click)="addContent('Ol')">format_list_numbered</mat-icon>
+    <mat-icon (click)="addContent('Quote')">format_quote</mat-icon>
+    <mat-icon (click)="addContent('Line')">line_style</mat-icon>
+    <mat-icon (click)="addContent('Code')">code</mat-icon>
+    <mat-icon (click)="isPreviewMode = !isPreviewMode"
+              *ngIf="!hideLivePreviewButton">{{ isPreviewMode ? 'visibility_off' : 'visibility'}}</mat-icon>
+  </div>
+  <form [formGroup]="form">
+    <mat-form-field [appearance]="appearance">
+      <mat-label>{{placeholder}}</mat-label>
+      <textarea (change)="_change($event)" (focus)="_select($event, true)" (reset)="_reset($event)"
+                (select)="_select($event)" [mat-autosize]="matAutosize" [matAutosizeMaxRows]="matAutosizeMaxRows"
+                [matAutosizeMinRows]="rows" [placeholder]="placeholder"
+                [readonly]="readonly" [rows]="rows" formControlName="textarea" matInput></textarea>
+    </mat-form-field>
+  </form>
+  <div *ngIf="livePreviewEnabled && isPreviewMode" class="preview" markdown>
+    {{value}}
+  </div>
+</div>
+
