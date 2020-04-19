@@ -1,27 +1,120 @@
-# NgxMatMarkdownTextEditorLibrary
+# NgxMatMarkdownTextEditor
+Angular markdown editor based on Angular material textarea.
+The goal of this library is to provide a markdown text editor which sweets the [Angular Material](https://material.angular.io) Design.
+* Library location: `projects/ngx-mat-markdown-text-editor` directory of this repository.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
+## Demo
 
-## Development server
+* 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Installation
 
-## Code scaffolding
+`npm i ngx-mat-markdown-text-editor`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## API
+
+`import { NgxMatMarkdownTextEditorModule } from 'ngx-mat-markdown-text-editor'
+`<br>
+`selector: ngx-mat-markdown-text-editor`
+
+### @Inputs()
+
+| Input                 | Type                   | Required                 | Description                                               |
+| --------------------- | ---------------------- | ------------------------ | --------------------------------------------------------- |
+| rows                  | number                 | Optional                 |                                                           | 
+| appearance            | MatFormFieldAppearance | Optional                 | The form-field appearance style.                          |
+| matAutosize           | boolean                | Optional, default: false | Whether autosizing is enabled or not                      |
+| readonly              | boolean                | Optional, default: false | Whether the element is readonly.                          |
+| placeholder           | string                 | Optional                 | The placeholder for this control.                         |
+| matAutosizeMaxRows    | number                 | Optional                 |                                                           |
+| livePreviewEnabled    | boolean                | Optional, default: false | Whether the live preview is enabled or not                |
+| hideLivePreviewButton | boolean                | Optional, default: false | Whether preview toggle button is displayed or not         |
+
+### @Outputs()
+
+| Output                | Description                                                      |
+| ----------------      | ---------------------------------------------------------------- |
+| reset                 | Emits when when the user resets a form.                          |
+| change                | Emits when the contents of the editor or selection have changed. |
+| select                | Emits when the current selection changes.                        |
+| focus                 | Emits when the editor receives focus.                            |
+| touched               | Emits when the user touches the editor.                          |
+
+## Usage
+
+1) Import the `NgxMatMarkdownTextEditorModule` in your app module.
+ > `import { NgxMatMarkdownTextEditorModule } from 'ngx-mat-markdown-text-editor'`
+
+ ```typescript
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {NgxMatMarkdownTextEditorModule} from 'ngx-mat-markdown-text-editor.module';
+
+import { AppComponent } from './app.component'; 
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxMatMarkdownTextEditorModule,
+    MatInputModule,
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+ ```
+
+ 2) Use the editor `(NgxMatMarkdownTextEditor)` in your component.
+
+```typescript
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+@Component({
+  selector: 'app-root',
+  template: `
+    <h3>NgxMatMarkdownTextEditor</h3>
+    <div [formGroup]="formGroup">
+        <ngx-mat-markdown-text-editor formControlName="text" appearance="outline" matAutosize
+                          hideLivePreviewButton="true" rows="5"></ngx-mat-markdown-text-editor>
+    </div>
+  `,
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent implements OnInit {
+
+  constructor() {}
+
+  formGroup: FormGroup;
+
+  ngOnInit() {
+    this.formGroup = new FormGroup({ text: new FormControl('') });
+  }
+
+}
+```
+
+### References
+* https://github.com/lon-yang/ngx-markdown-editor
+* https://jfcere.github.io/ngx-markdown/
+* https://ghiscoding.github.io/angular-markdown-editor/#/reactive-editor
+* https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `ng build ngx-mat-markdown-text-editor` to build the library. The build artifacts will be stored in the `dist/ngx-mat-markdown-text-editor` directory. Use the `--prod` flag for a production build.
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `ng test ngx-mat-markdown-text-editor` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Credits
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+This project is based on [ngx-markdown](https://github.com/jfcere/ngx-markdown) and inspired from [ngx-markdown-editor](https://github.com/lon-yang/ngx-markdown-editor).
