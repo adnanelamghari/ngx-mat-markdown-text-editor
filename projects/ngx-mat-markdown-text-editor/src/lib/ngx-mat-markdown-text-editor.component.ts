@@ -9,10 +9,9 @@ import {
 } from '@angular/forms';
 import {Subscription} from 'rxjs';
 import {MatFormFieldAppearance} from '@angular/material/form-field';
-import {ErrorStateMatcher} from '@angular/material/core';
 
 @Component({
-  selector: 'lib-ngx-mat-markdown-text-editor',
+  selector: 'ngx-mat-markdown-text-editor',
   templateUrl: './ngx-mat-markdown-text-editor.component.html',
   styleUrls: ['./ngx-mat-markdown-text-editor.component.scss'],
   providers: [
@@ -34,7 +33,6 @@ export class NgxMatMarkdownTextEditorComponent implements ControlValueAccessor, 
 
   @Input() rows: number;
   @Input() appearance: MatFormFieldAppearance;
-  @Input() errorStateMatcher: ErrorStateMatcher;
   @Input() matAutosize: boolean;
   @Input() readonly: boolean;
   @Input() placeholder: string;
