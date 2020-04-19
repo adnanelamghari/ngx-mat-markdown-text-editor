@@ -30,7 +30,6 @@ import {MatFormFieldAppearance} from '@angular/material/form-field';
 })
 export class NgxMatMarkdownTextEditorComponent implements ControlValueAccessor, OnDestroy {
 
-
   @Input() rows: number;
   @Input() appearance: MatFormFieldAppearance;
   @Input() matAutosize: boolean;
@@ -38,7 +37,7 @@ export class NgxMatMarkdownTextEditorComponent implements ControlValueAccessor, 
   @Input() placeholder: string;
   @Input() matAutosizeMaxRows: number;
   @Input() livePreviewEnabled: boolean;
-  @Input() hideLivePreviewButton: boolean = false;
+  @Input() hideLivePreviewButton: boolean;
 
   @Output() reset = new EventEmitter();
   @Output() change = new EventEmitter();

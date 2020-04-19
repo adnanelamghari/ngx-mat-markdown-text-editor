@@ -20,7 +20,7 @@ import {NgxMatMarkdownTextEditorComponent} from './ngx-mat-markdown-text-editor.
     FormsModule,
     MatInputModule,
     ReactiveFormsModule,
-    MarkdownModule,
+    MarkdownModule.forRoot(),
     MatMenuModule
   ],
   exports: [NgxMatMarkdownTextEditorComponent]

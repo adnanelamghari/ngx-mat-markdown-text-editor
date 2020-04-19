@@ -1,9 +1,27 @@
 {
   "name": "ngx-mat-markdown-text-editor-library",
   "version": "0.0.0",
+  "description": "Angular markdown text editor based for Material Angular",
+  "author": "Adnane Lamghari",
+  "repository": {
+    "url": "https://github.com/adnanelamghari/ngx-mat-markdown-text-editor",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/adnanelamghari/ngx-mat-markdown-text-editor/issues"
+  },
+  "homepage": "https://github.com/adnanelamghari/ngx-mat-markdown-text-editor",
+  "keywords": [
+    "angular",
+    "angular-material",
+    "markdown",
+    "editor",
+    "material-design"
+  ],
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port 4600",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -12,7 +30,7 @@
     "copy-license": "copy .\\LICENSE .\\dist\\ngx-mat-markdown-text-editor",
     "copy-readme": "copy .\\README.md .\\dist\\ngx-mat-markdown-text-editor",
     "copy-files": "npm run copy-license && npm run copy-readme",
-    "npm_pack": "cd dist/ng-example-library && npm pack",
+    "npm_pack": "cd dist/ngx-mat-markdown-text-editor && npm pack",
     "package": "npm run build_lib && npm run copy-files && npm run npm_pack"
   },
   "private": true,

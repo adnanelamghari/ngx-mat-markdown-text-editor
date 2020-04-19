@@ -17,7 +17,6 @@
     ],
     "paths": {
       "ngx-mat-markdown-text-editor": [
-        "dist/ngx-mat-markdown-text-editor/ngx-mat-markdown-text-editor",
         "dist/ngx-mat-markdown-text-editor"
       ]
     }

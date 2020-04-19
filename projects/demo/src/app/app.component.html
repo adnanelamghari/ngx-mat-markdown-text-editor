@@ -1,0 +1,9 @@
+<div class="container">
+  <h3>NgxMatMarkdownTextEditor</h3>
+  <form (ngSubmit)="submit()" [formGroup]="formGroup">
+    <ngx-mat-markdown-text-editor (change)="change($event)" [livePreviewEnabled]="true" appearance="outline"
+                                  formControlName="text"
+                                  matAutosize rows="5"></ngx-mat-markdown-text-editor>
+    <button color="accent" mat-button type="submit">Submit</button>
+  </form>
+</div>

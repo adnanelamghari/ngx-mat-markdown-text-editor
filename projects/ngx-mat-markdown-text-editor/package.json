@@ -1,6 +1,24 @@
 {
   "name": "ngx-mat-markdown-text-editor",
   "version": "0.0.1",
+  "description": "Angular markdown text editor based for Material Angular",
+  "author": "Adnane Lamghari",
+  "repository": {
+    "url": "https://github.com/adnanelamghari/ngx-mat-markdown-text-editor",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/adnanelamghari/ngx-mat-markdown-text-editor/issues"
+  },
+  "homepage": "https://github.com/adnanelamghari/ngx-mat-markdown-text-editor",
+  "keywords": [
+    "angular",
+    "angular-material",
+    "markdown",
+    "editor",
+    "material-design"
+  ],
+  "license": "MIT",
   "peerDependencies": {
     "@angular/cdk": "^9.2.1",
     "@angular/common": "^9.1.1",

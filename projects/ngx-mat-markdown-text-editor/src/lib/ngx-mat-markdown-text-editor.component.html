@@ -18,15 +18,13 @@
   </div>
   <form [formGroup]="form">
     <mat-form-field [appearance]="appearance">
-      <mat-label>{{placeholder}}</mat-label>
+      <mat-label *ngIf="placeholder">{{placeholder}}</mat-label>
       <textarea (change)="_change($event)" (focus)="_select($event, true)" (reset)="_reset($event)"
                 (select)="_select($event)" [mat-autosize]="matAutosize" [matAutosizeMaxRows]="matAutosizeMaxRows"
                 [matAutosizeMinRows]="rows" [placeholder]="placeholder"
-                [readonly]="readonly" [rows]="rows" formControlName="textarea" matInput></textarea>
+                #textarea [readonly]="readonly" [rows]="rows" formControlName="textarea" matInput></textarea>
     </mat-form-field>
   </form>
-  <div *ngIf="livePreviewEnabled && isPreviewMode" class="preview" markdown>
-    {{value}}
-  </div>
+  <p *ngIf="livePreviewEnabled && isPreviewMode" [data]="textarea.value" class="preview" markdown></p>
 </div>
 

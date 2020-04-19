@@ -1,11 +1,13 @@
 # NgxMatMarkdownTextEditor
 Angular markdown editor based on Angular material textarea.
 The goal of this library is to provide a markdown text editor which sweets the [Angular Material](https://material.angular.io) Design.
-* Library location: `projects/ngx-mat-markdown-text-editor` directory of this repository.
+* Library location : `projects/ngx-mat-markdown-text-editor` directory of this repository.
+* Working example location : `projects/demo` directory of this repository.
 
 ## Demo
 
-* 
+* Working example location : `projects/demo` directory of this repository.
+* [Stackblitz](https://stackblitz.com/@adnanelamghari)
 
 ## Installation
 
@@ -49,6 +51,7 @@ The goal of this library is to provide a markdown text editor which sweets the [
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button'; 
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -65,6 +68,7 @@ import { AppComponent } from './app.component';
     ReactiveFormsModule,
     NgxMatMarkdownTextEditorModule,
     MatInputModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -80,10 +84,13 @@ import { FormControl, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-root',
   template: `
-    <h3>NgxMatMarkdownTextEditor</h3>
-    <div [formGroup]="formGroup">
-        <ngx-mat-markdown-text-editor formControlName="text" appearance="outline" matAutosize
-                          hideLivePreviewButton="true" rows="5"></ngx-mat-markdown-text-editor>
+    <div class="container">
+      <h3>NgxMatMarkdownTextEditor</h3>
+      <form [formGroup]="formGroup" (ngSubmit)="submit()">
+        <ngx-mat-markdown-text-editor formControlName="text" appearance="outline" matAutosize [livePreviewEnabled]="true"
+                                      rows="5" (change)="change($event)"></ngx-mat-markdown-text-editor>
+        <button mat-button type="submit" color="accent">Submit</button>
+      </form>
     </div>
   `,
   styleUrls: ['./app.component.css']
@@ -96,6 +103,10 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.formGroup = new FormGroup({ text: new FormControl('') });
+  }
+
+  submit(): void {
+    console.log(this.formGroup.value)
   }
 
 }
