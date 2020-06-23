@@ -1,3 +1,10 @@
+
+
+<p align="center">
+    <img src="https://github.com/maartentibau/angular-logos/blob/master/logos/angular-extensions.svg" alt="Image" width="150" />
+  <img src="https://github.com/maartentibau/angular-logos/blob/master/logos/angular-material.svg" alt="Image" width="150"/>
+</p>
+
 # NgxMatMarkdownTextEditor
 Angular markdown editor based on Angular material textarea.
 The goal of this library is to provide a markdown text editor which sweets the [Angular Material](https://material.angular.io) Design.
